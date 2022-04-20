@@ -1,10 +1,23 @@
 -- create
 CREATE TABLE IF NOT EXISTS nhaxuatban(
-    MaNXB nvarchar(10) primary key,
-    TenNXB nvarchar(50),
-    DiaChi nvarchar(50),
-    SDT nvarchar(15)
+  ma CHAR(10) NOT NULL,
+  ten NVARCHAR(50),
+  dia_chi NVARCHAR(500),
+  sdt CHAR(20),
+  PRIMARY KEY(ma)
 );
-
+-- add values
+INSERT INTO
+  nhaxuatban
+VALUES
+  ("NXB01", "NXB Văn Hóa", "Hà Nội", "0987654321");
 -- view
-select * from nhaxuatban;
+SELECT
+  *
+FROM
+  nhaxuatban;
+-- clear
+DELETE FROM
+  nhaxuatban;
+-- delete
+  DROP TABLE nhaxuatban;
