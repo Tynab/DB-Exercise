@@ -2,7 +2,7 @@
 CREATE TABLE IF NOT EXISTS nhaxuatban(
   ma CHAR(10) NOT NULL,
   ten NVARCHAR(50),
-  dia_chi NVARCHAR(500),
+  dia_chi NVARCHAR(200),
   sdt CHAR(20),
   PRIMARY KEY(ma)
 );
