@@ -10,11 +10,11 @@ CREATE TABLE IF NOT EXISTS chitiethoadon(
 ALTER TABLE
   chitiethoadon
 ADD
-  CONSTRAINT fk_ma_sanpham FOREIGN KEY(ma_sanpham) REFERENCES sanpham(ma);
+  CONSTRAINT fk_masanpham FOREIGN KEY(ma_sanpham) REFERENCES sanpham(ma);
 ALTER TABLE
   chitiethoadon
 ADD
-  CONSTRAINT fk_ma_hoadon FOREIGN KEY(ma_hoadon) REFERENCES hoadon(ma);
+  CONSTRAINT fk_mahoadon FOREIGN KEY(ma_hoadon) REFERENCES hoadon(ma);
 -- add values
 INSERT INTO
   chitiethoadon
@@ -35,8 +35,8 @@ DELETE FROM
   chitiethoadon;
 -- remove foreign key
 ALTER TABLE
-  chitiethoadon DROP FOREIGN KEY fk_ma_sanpham;
+  chitiethoadon DROP FOREIGN KEY fk_masanpham;
 ALTER TABLE
-  chitiethoadon DROP FOREIGN KEY fk_ma_hoadon;
+  chitiethoadon DROP FOREIGN KEY fk_mahoadon;
 -- delete
   DROP TABLE chitiethoadon;

@@ -9,23 +9,6 @@ CREATE TABLE IF NOT EXISTS sach(
   so_luong INT,
   PRIMARY KEY(ma)
 );
--- add new column
-ALTER TABLE
-  sach
-ADD
-  COLUMN ma_nxb CHAR(10)
-AFTER
-  so_luong;
-ALTER TABLE
-  sach
-ADD
-  COLUMN ma_tg CHAR(10)
-AFTER
-  ma_nxb;
-ALTER TABLE
-  sach
-ADD
-  COLUMN ma_cd CHAR(10);
 -- add values
 INSERT INTO
   sach(
@@ -45,23 +28,53 @@ VALUES
     "20220101",
     3
   );
+-- add new column
+ALTER TABLE
+  sach
+ADD
+  COLUMN ma_nhaxuatban CHAR(10)
+AFTER
+  so_luong;
+ALTER TABLE
+  sach
+ADD
+  COLUMN ma_tacgia CHAR(10)
+AFTER
+  ma_nhaxuatban;
+ALTER TABLE
+  sach
+ADD
+  COLUMN ma_chude CHAR(10);
+-- add foreign key
+ALTER TABLE
+  sach
+ADD
+  CONSTRAINT fk_mnxb FOREIGN KEY(ma_nhaxuatban) REFERENCES nhaxuatban(ma);
+ALTER TABLE
+  sach
+ADD
+  CONSTRAINT fk_mtg FOREIGN KEY(ma_tacgia) REFERENCES tacgia(ma);
+ALTER TABLE
+  sach
+ADD
+  CONSTRAINT fk_mcd FOREIGN KEY(ma_chude) REFERENCES chude(ma);
 -- edit value
 UPDATE
   sach
 SET
-  ma_nxb = "NXB01"
+  ma_nhaxuatban = "NXB01"
 WHERE
   ma = "S01";
 UPDATE
   sach
 SET
-  ma_tg = "TG01"
+  ma_tacgia = "TG01"
 WHERE
   ma = "S01";
 UPDATE
   sach
 SET
-  ma_cd = "CD01"
+  ma_chude = "CD01"
 WHERE
   ma = "S01";
 -- view
@@ -72,12 +85,19 @@ FROM
 -- clear
 DELETE FROM
   sach;
+-- remove foreign key
+ALTER TABLE
+  sach DROP FOREIGN KEY fk_mnxb;
+ALTER TABLE
+  sach DROP FOREIGN KEY fk_mtg;
+ALTER TABLE
+  sach DROP FOREIGN KEY fk_mcd;
 -- remove column
 ALTER TABLE
-  sach DROP COLUMN ma_nxb;
+  sach DROP COLUMN ma_nhaxuatban;
 ALTER TABLE
-  sach DROP COLUMN ma_tg;
+  sach DROP COLUMN ma_tacgia;
 ALTER TABLE
-  sach DROP COLUMN ma_cd;
+  sach DROP COLUMN ma_chude;
 -- delete
   DROP TABLE sach;

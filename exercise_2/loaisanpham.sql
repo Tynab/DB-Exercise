@@ -4,11 +4,6 @@ CREATE TABLE IF NOT EXISTS loaisanpham(
   ten NVARCHAR(50),
   PRIMARY KEY(ma)
 );
--- add new column
-ALTER TABLE
-  loaisanpham
-ADD
-  COLUMN ma_sp CHAR(10);
 -- add values
 INSERT INTO
   loaisanpham
@@ -16,23 +11,33 @@ VALUES
   ("LSP01", "Sách"),
   ("LSP02", "Điện thoại"),
   ("LSP03", "Laptop");
+-- add new column
+ALTER TABLE
+  loaisanpham
+ADD
+  COLUMN ma_sanpham CHAR(10);
+-- add foreign key
+ALTER TABLE
+  loaisanpham
+ADD
+  CONSTRAINT fk_msp FOREIGN KEY(ma_sanpham) REFERENCES sanpham(ma);
 -- edit value
 UPDATE
   loaisanpham
 SET
-  ma_sp = "SP01"
+  ma_sanpham = "SP01"
 WHERE
   ma = "LSP01";
 UPDATE
   loaisanpham
 SET
-  ma_sp = "SP02"
+  ma_sanpham = "SP02"
 WHERE
   ma = "LSP02";
 UPDATE
   loaisanpham
 SET
-  ma_sp = "SP03"
+  ma_sanpham = "SP03"
 WHERE
   ma = "LSP03";
 -- view
@@ -43,8 +48,11 @@ FROM
 -- clear
 DELETE FROM
   loaisanpham;
+-- remove foreign key
+ALTER TABLE
+  loaisanpham DROP FOREIGN KEY fk_msp;
 -- remove column
 ALTER TABLE
-  loaisanpham DROP COLUMN ma_sp;
+  loaisanpham DROP COLUMN ma_sanpham;
 -- delete
   DROP TABLE loaisanpham;
