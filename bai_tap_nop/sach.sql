@@ -62,18 +62,8 @@ ADD
 UPDATE
   sach
 SET
-  ma_nhaxuatban = "NXB01"
-WHERE
-  ma = "S01";
-UPDATE
-  sach
-SET
-  ma_tacgia = "TG01"
-WHERE
-  ma = "S01";
-UPDATE
-  sach
-SET
+  ma_nhaxuatban = "NXB01",
+  ma_tacgia = "TG01",
   ma_chude = "CD01"
 WHERE
   ma = "S01";
