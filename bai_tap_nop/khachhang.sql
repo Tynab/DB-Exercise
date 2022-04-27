@@ -1,14 +1,14 @@
 -- create
 CREATE TABLE IF NOT EXISTS khachhang(
   ma CHAR(10) NOT NULL,
-  tai_khoan NVARCHAR(50),
-  mat_khau NVARCHAR(50),
+  tai_khoan CHAR(50),
+  mat_khau CHAR(50),
   ten NVARCHAR(50),
   ngay_sinh DATE,
   gioi_tinh BIT,
-  dia_chi NVARCHAR(200),
-  sdt NVARCHAR(20),
-  email NVARCHAR(50),
+  dia_chi NVARCHAR(255),
+  sdt CHAR(20),
+  email CHAR(50),
   PRIMARY KEY(ma)
 );
 -- add values

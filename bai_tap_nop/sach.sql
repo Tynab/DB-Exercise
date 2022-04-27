@@ -3,8 +3,8 @@ CREATE TABLE IF NOT EXISTS sach(
   ma CHAR(10) NOT NULL,
   ten NVARCHAR(50),
   anh LONGBLOB,
-  mo_ta NVARCHAR(500),
-  gia DOUBLE,
+  mo_ta NVARCHAR(255),
+  gia INT,
   ngay DATE,
   so_luong INT,
   PRIMARY KEY(ma)
@@ -25,7 +25,7 @@ VALUES
     "Sách Văn Hóa",
     "Dạy kỹ năng ứng xử thường nhật",
     100000,
-    "20220101",
+    "2022-01-01",
     3
   );
 -- add new column

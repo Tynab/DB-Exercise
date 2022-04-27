@@ -2,8 +2,8 @@
 CREATE TABLE IF NOT EXISTS tacgia(
   ma CHAR(10) NOT NULL,
   ten NVARCHAR(50),
-  tieu_su NVARCHAR(500),
-  dia_chi NVARCHAR(200),
+  tieu_su NVARCHAR(255),
+  dia_chi NVARCHAR(255),
   sdt CHAR(20),
   PRIMARY KEY(ma)
 );

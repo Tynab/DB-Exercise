@@ -3,9 +3,9 @@ CREATE TABLE IF NOT EXISTS khachhang(
   ma CHAR(10) NOT NULL,
   ho NVARCHAR(20),
   ten NVARCHAR(20),
-  dia_chi NVARCHAR(200),
-  sdt NVARCHAR(20),
-  email NVARCHAR(50),
+  dia_chi NVARCHAR(255),
+  sdt CHAR(20),
+  email CHAR(50),
   PRIMARY KEY(ma)
 );
 -- add values

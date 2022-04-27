@@ -2,7 +2,7 @@
 CREATE TABLE IF NOT EXISTS sanpham(
   ma CHAR(10) NOT NULL,
   ten NVARCHAR(50),
-  mo_ta NVARCHAR(200),
+  mo_ta NVARCHAR(255),
   gia INT,
   PRIMARY KEY(ma)
 );

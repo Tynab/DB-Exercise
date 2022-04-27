@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS donhang(
 INSERT INTO
   donhang
 VALUES
-  ("DH01", true, "Đã giao", "20220201", "20220301");
+  ("DH01", true, "Đã giao", "2022-02-01", "2022-03-01");
 -- add new column
 ALTER TABLE
   donhang

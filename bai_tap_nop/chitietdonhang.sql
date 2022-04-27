@@ -2,7 +2,7 @@
 CREATE TABLE IF NOT EXISTS chitietdonhang(
   ma_sach CHAR(10) NOT NULL,
   ma_donhang CHAR(10) NOT NULL,
-  don_gia DOUBLE,
+  don_gia INT,
   so_luong INT,
   PRIMARY KEY(ma_sach, ma_donhang)
 );
