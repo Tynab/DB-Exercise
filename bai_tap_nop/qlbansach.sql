@@ -1,6 +1,6 @@
 -- create
 CREATE DATABASE IF NOT EXISTS qlbansach;
---use
+-- use
 USE qlbansach;
 -- test
 SELECT

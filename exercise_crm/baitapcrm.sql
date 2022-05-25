@@ -1,6 +1,6 @@
 -- create
 CREATE DATABASE IF NOT EXISTS baitapcrm;
---use
+-- use
 USE baitapcrm;
 -- delete
 DROP DATABASE baitapcrm;

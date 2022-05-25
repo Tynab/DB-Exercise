@@ -1,6 +1,6 @@
 -- create
 CREATE DATABASE IF NOT EXISTS baitaptonghop;
---use
+-- use
 USE baitaptonghop;
 -- 1)
 SELECT

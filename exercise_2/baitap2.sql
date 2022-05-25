@@ -1,6 +1,6 @@
 -- create
 CREATE DATABASE IF NOT EXISTS baitap2;
---use
+-- use
 USE baitap2;
 -- test
 SELECT
