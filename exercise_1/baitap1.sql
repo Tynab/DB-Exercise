@@ -1,31 +1,33 @@
 -- create
+
 CREATE DATABASE IF NOT EXISTS baitap1;
+
 -- use
+
 USE baitap1;
+
 -- main
+
 SELECT
-  *
+    *
 FROM
-  students
+    students
 WHERE
-  gender = "Nam"
+    gender = "Nam"
 ORDER BY
-  age DESC;
+    age DESC;
+
+SELECT * FROM students WHERE gender = "Nu" LIMIT 2;
+
 SELECT
-  *
+    full_name,
+    age
 FROM
-  students
+    students
 WHERE
-  gender = "Nu"
-LIMIT
-  2;
-SELECT
-  full_name,
-  age
-FROM
-  students
-WHERE
-  city = "Can Tho"
-  OR city = "Soc Trang";
+    city = "Can Tho"
+    OR city = "Soc Trang";
+
 -- delete
-  DROP DATABASE baitap1;
+
+DROP DATABASE baitap1;

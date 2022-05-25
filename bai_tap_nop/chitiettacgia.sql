@@ -1,42 +1,51 @@
 -- create
+
 CREATE TABLE IF NOT EXISTS chitiettacgia(
-  ma_sach CHAR(10) NOT NULL,
-  ma_tacgia CHAR(10) NOT NULL,
-  vai_tro NVARCHAR(20),
-  vi_tri NVARCHAR(20),
-  PRIMARY KEY(ma_sach, ma_tacgia)
+    ma_sach CHAR(10) NOT NULL,
+    ma_tacgia CHAR(10) NOT NULL,
+    vai_tro NVARCHAR(20),
+    vi_tri NVARCHAR(20),
+    PRIMARY KEY(ma_sach, ma_tacgia)
 );
+
 -- add foreign key
+
 ALTER TABLE
-  chitiettacgia
+    chitiettacgia
 ADD
-  CONSTRAINT fk_ma_sach FOREIGN KEY(ma_sach) REFERENCES sach(ma);
+    CONSTRAINT fk_ma_sach FOREIGN KEY(ma_sach) REFERENCES sach(ma);
+
 ALTER TABLE
-  chitiettacgia
+    chitiettacgia
 ADD
-  CONSTRAINT fk_ma_tacgia FOREIGN KEY(ma_tacgia) REFERENCES tacgia(ma);
+    CONSTRAINT fk_ma_tacgia FOREIGN KEY(ma_tacgia) REFERENCES tacgia(ma);
+
 -- add values
+
 INSERT INTO
-  chitiettacgia
+    chitiettacgia
 VALUES
-  (
-    "S01",
-    "TG01",
-    "Tác giả",
-    "Giám đốc"
-  );
+    (
+        "S01",
+        "TG01",
+        "Tác giả",
+        "Giám đốc"
+    );
+
 -- view
-SELECT
-  *
-FROM
-  chitiettacgia;
+
+SELECT * FROM chitiettacgia;
+
 -- clear
-DELETE FROM
-  chitiettacgia;
+
+DELETE FROM chitiettacgia;
+
 -- remove foreign key
-ALTER TABLE
-  chitiettacgia DROP FOREIGN KEY fk_ma_sach;
-ALTER TABLE
-  chitiettacgia DROP FOREIGN KEY fk_ma_tacgia;
+
+ALTER TABLE chitiettacgia DROP FOREIGN KEY fk_ma_sach;
+
+ALTER TABLE chitiettacgia DROP FOREIGN KEY fk_ma_tacgia;
+
 -- delete
-  DROP TABLE chitiettacgia;
+
+DROP TABLE chitiettacgia;

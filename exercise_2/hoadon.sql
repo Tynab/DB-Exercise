@@ -1,23 +1,28 @@
 -- create
+
 CREATE TABLE IF NOT EXISTS hoadon(
-  ma CHAR(10) NOT NULL,
-  ngay DATE,
-  PRIMARY KEY(ma)
+    ma CHAR(10) NOT NULL,
+    ngay DATE,
+    PRIMARY KEY(ma)
 );
+
 -- add values
+
 INSERT INTO
-  hoadon
+    hoadon
 VALUES
-  ("HD01", "2022-01-01"),
-  ("HD02", "2022-01-02"),
-  ("HD03", "2022-01-03");
+    ("HD01", "2022-01-01"),
+    ("HD02", "2022-01-02"),
+    ("HD03", "2022-01-03");
+
 -- view
-SELECT
-  *
-FROM
-  hoadon;
+
+SELECT * FROM hoadon;
+
 -- clear
-DELETE FROM
-  hoadon;
+
+DELETE FROM hoadon;
+
 -- delete
-  DROP TABLE hoadon;
+
+DROP TABLE hoadon;

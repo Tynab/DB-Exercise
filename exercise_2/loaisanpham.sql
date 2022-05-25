@@ -1,58 +1,55 @@
 -- create
+
 CREATE TABLE IF NOT EXISTS loaisanpham(
-  ma CHAR(10) NOT NULL,
-  ten NVARCHAR(50),
-  PRIMARY KEY(ma)
+    ma CHAR(10) NOT NULL,
+    ten NVARCHAR(50),
+    PRIMARY KEY(ma)
 );
+
 -- add values
+
 INSERT INTO
-  loaisanpham
+    loaisanpham
 VALUES
-  ("LSP01", "Sách"),
-  ("LSP02", "Điện thoại"),
-  ("LSP03", "Laptop");
+    ("LSP01", "Sách"),
+    ("LSP02", "Điện thoại"),
+    ("LSP03", "Laptop");
+
 -- add new column
-ALTER TABLE
-  loaisanpham
-ADD
-  COLUMN ma_sanpham CHAR(10);
+
+ALTER TABLE loaisanpham ADD COLUMN ma_sanpham CHAR(10);
+
 -- add foreign key
+
 ALTER TABLE
-  loaisanpham
+    loaisanpham
 ADD
-  CONSTRAINT fk_msp FOREIGN KEY(ma_sanpham) REFERENCES sanpham(ma);
+    CONSTRAINT fk_msp FOREIGN KEY(ma_sanpham) REFERENCES sanpham(ma);
+
 -- edit value
-UPDATE
-  loaisanpham
-SET
-  ma_sanpham = "SP01"
-WHERE
-  ma = "LSP01";
-UPDATE
-  loaisanpham
-SET
-  ma_sanpham = "SP02"
-WHERE
-  ma = "LSP02";
-UPDATE
-  loaisanpham
-SET
-  ma_sanpham = "SP03"
-WHERE
-  ma = "LSP03";
+
+UPDATE loaisanpham SET ma_sanpham = "SP01" WHERE ma = "LSP01";
+
+UPDATE loaisanpham SET ma_sanpham = "SP02" WHERE ma = "LSP02";
+
+UPDATE loaisanpham SET ma_sanpham = "SP03" WHERE ma = "LSP03";
+
 -- view
-SELECT
-  *
-FROM
-  loaisanpham;
+
+SELECT * FROM loaisanpham;
+
 -- clear
-DELETE FROM
-  loaisanpham;
+
+DELETE FROM loaisanpham;
+
 -- remove foreign key
-ALTER TABLE
-  loaisanpham DROP FOREIGN KEY fk_msp;
+
+ALTER TABLE loaisanpham DROP FOREIGN KEY fk_msp;
+
 -- remove column
-ALTER TABLE
-  loaisanpham DROP COLUMN ma_sanpham;
+
+ALTER TABLE loaisanpham DROP COLUMN ma_sanpham;
+
 -- delete
-  DROP TABLE loaisanpham;
+
+DROP TABLE loaisanpham;

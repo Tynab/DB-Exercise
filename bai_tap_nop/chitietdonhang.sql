@@ -1,42 +1,46 @@
 -- create
+
 CREATE TABLE IF NOT EXISTS chitietdonhang(
-  ma_sach CHAR(10) NOT NULL,
-  ma_donhang CHAR(10) NOT NULL,
-  don_gia INT,
-  so_luong INT,
-  PRIMARY KEY(ma_sach, ma_donhang)
+    ma_sach CHAR(10) NOT NULL,
+    ma_donhang CHAR(10) NOT NULL,
+    don_gia INT,
+    so_luong INT,
+    PRIMARY KEY(ma_sach, ma_donhang)
 );
+
 -- add foreign key
+
 ALTER TABLE
-  chitietdonhang
+    chitietdonhang
 ADD
-  CONSTRAINT fk_masach FOREIGN KEY(ma_sach) REFERENCES sach(ma);
+    CONSTRAINT fk_masach FOREIGN KEY(ma_sach) REFERENCES sach(ma);
+
 ALTER TABLE
-  chitietdonhang
+    chitietdonhang
 ADD
-  CONSTRAINT fk_madonhang FOREIGN KEY(ma_donhang) REFERENCES donhang(ma);
+    CONSTRAINT fk_madonhang FOREIGN KEY(ma_donhang) REFERENCES donhang(ma);
+
 -- add values
+
 INSERT INTO
-  chitietdonhang
+    chitietdonhang
 VALUES
-  (
-    "S01",
-    "DH01",
-    100000,
-    1
-  );
+    ("S01", "DH01", 100000, 1);
+
 -- view
-SELECT
-  *
-FROM
-  chitietdonhang;
+
+SELECT * FROM chitietdonhang;
+
 -- clear
-DELETE FROM
-  chitietdonhang;
+
+DELETE FROM chitietdonhang;
+
 -- remove foreign key
-ALTER TABLE
-  chitietdonhang DROP FOREIGN KEY fk_masach;
-ALTER TABLE
-  chitietdonhang DROP FOREIGN KEY fk_madonhang;
+
+ALTER TABLE chitietdonhang DROP FOREIGN KEY fk_masach;
+
+ALTER TABLE chitietdonhang DROP FOREIGN KEY fk_madonhang;
+
 -- delete
-  DROP TABLE chitietdonhang;
+
+DROP TABLE chitietdonhang;
