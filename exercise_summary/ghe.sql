@@ -19,11 +19,3 @@ VALUES
 -- view
 
 SELECT * FROM ghe;
-
--- clear
-
-DELETE FROM ghe;
-
--- delete
-
-DROP TABLE ghe;

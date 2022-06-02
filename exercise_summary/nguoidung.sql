@@ -51,11 +51,3 @@ WHERE
 -- view
 
 SELECT * FROM nguoidung;
-
--- clear
-
-DELETE FROM nguoidung;
-
--- delete
-
-DROP TABLE nguoidung;

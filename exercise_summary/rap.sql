@@ -30,19 +30,3 @@ UPDATE rap SET ma_ghe = "G02" WHERE ma = "R02";
 -- view
 
 SELECT * FROM rap;
-
--- clear
-
-DELETE FROM rap;
-
--- remove foreign key
-
-ALTER TABLE rap DROP FOREIGN KEY fk_mg;
-
--- remove column
-
-ALTER TABLE rap DROP COLUMN ma_ghe;
-
--- delete
-
-DROP TABLE rap;

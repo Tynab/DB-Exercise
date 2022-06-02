@@ -26,7 +26,3 @@ FROM
     JOIN nhaxuatban nxb ON nxb.ma = s.ma_nhaxuatban
     JOIN tacgia tg ON tg.ma = s.ma_tacgia
     JOIN chitiettacgia cttg ON cttg.ma_tacgia = tg.ma;
-
--- delete
-
-DROP DATABASE qlbansach;

@@ -25,11 +25,3 @@ VALUES
 -- view
 
 SELECT * FROM tacgia;
-
--- clear
-
-DELETE FROM tacgia;
-
--- delete
-
-DROP TABLE tacgia;

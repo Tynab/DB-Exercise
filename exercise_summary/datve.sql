@@ -100,21 +100,3 @@ WHERE
 -- view
 
 SELECT * FROM datve;
-
--- clear
-
-DELETE FROM datve;
-
--- remove foreign key
-
-ALTER TABLE datve DROP FOREIGN KEY fk_ma_rap;
-
-ALTER TABLE datve DROP FOREIGN KEY fk_ma_phim;
-
-ALTER TABLE datve DROP FOREIGN KEY fk_ma_ghe;
-
-ALTER TABLE datve DROP FOREIGN KEY fk_ma_tknd;
-
--- delete
-
-DROP TABLE datve;

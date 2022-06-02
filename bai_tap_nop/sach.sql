@@ -81,27 +81,3 @@ WHERE
 -- view
 
 SELECT * FROM sach;
-
--- clear
-
-DELETE FROM sach;
-
--- remove foreign key
-
-ALTER TABLE sach DROP FOREIGN KEY fk_mnxb;
-
-ALTER TABLE sach DROP FOREIGN KEY fk_mtg;
-
-ALTER TABLE sach DROP FOREIGN KEY fk_mcd;
-
--- remove column
-
-ALTER TABLE sach DROP COLUMN ma_nhaxuatban;
-
-ALTER TABLE sach DROP COLUMN ma_tacgia;
-
-ALTER TABLE sach DROP COLUMN ma_chude;
-
--- delete
-
-DROP TABLE sach;

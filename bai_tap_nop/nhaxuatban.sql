@@ -18,11 +18,3 @@ VALUES
 -- view
 
 SELECT * FROM nhaxuatban;
-
--- clear
-
-DELETE FROM nhaxuatban;
-
--- delete
-
-DROP TABLE nhaxuatban;

@@ -44,17 +44,3 @@ VALUES
 -- view
 
 SELECT * FROM chitietphim;
-
--- clear
-
-DELETE FROM chitietphim;
-
--- remove foreign key
-
-ALTER TABLE chitietphim DROP FOREIGN KEY fk_marap;
-
-ALTER TABLE chitietphim DROP FOREIGN KEY fk_maphim;
-
--- delete
-
-DROP TABLE chitietphim;

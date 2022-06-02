@@ -42,19 +42,3 @@ UPDATE khachhang SET ma_hoadon = "HD01" WHERE ma = "KH01";
 -- view
 
 SELECT * FROM khachhang;
-
--- clear
-
-DELETE FROM khachhang;
-
--- remove foreign key
-
-ALTER TABLE khachhang DROP FOREIGN KEY fk_mhd;
-
--- remove column
-
-ALTER TABLE khachhang DROP COLUMN ma_hoadon;
-
--- delete
-
-DROP TABLE khachhang;

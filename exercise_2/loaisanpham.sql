@@ -37,19 +37,3 @@ UPDATE loaisanpham SET ma_sanpham = "SP03" WHERE ma = "LSP03";
 -- view
 
 SELECT * FROM loaisanpham;
-
--- clear
-
-DELETE FROM loaisanpham;
-
--- remove foreign key
-
-ALTER TABLE loaisanpham DROP FOREIGN KEY fk_msp;
-
--- remove column
-
-ALTER TABLE loaisanpham DROP COLUMN ma_sanpham;
-
--- delete
-
-DROP TABLE loaisanpham;

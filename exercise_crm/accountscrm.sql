@@ -26,11 +26,3 @@ VALUES
 -- view
 
 SELECT * FROM accountscrm;
-
--- clear
-
-DELETE FROM accountscrm;
-
--- delete
-
-DROP TABLE accountscrm;

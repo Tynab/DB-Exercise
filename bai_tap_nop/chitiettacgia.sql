@@ -35,17 +35,3 @@ VALUES
 -- view
 
 SELECT * FROM chitiettacgia;
-
--- clear
-
-DELETE FROM chitiettacgia;
-
--- remove foreign key
-
-ALTER TABLE chitiettacgia DROP FOREIGN KEY fk_ma_sach;
-
-ALTER TABLE chitiettacgia DROP FOREIGN KEY fk_ma_tacgia;
-
--- delete
-
-DROP TABLE chitiettacgia;

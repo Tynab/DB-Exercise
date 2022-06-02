@@ -20,7 +20,3 @@ FROM
     JOIN chitiethoadon cthd ON cthd.ma_hoadon = hd.ma
     JOIN sanpham sp ON sp.ma = cthd.ma_sanpham
     JOIN loaisanpham lsp ON lsp.ma_sanpham = sp.ma;
-
--- delete
-
-DROP DATABASE baitap2;

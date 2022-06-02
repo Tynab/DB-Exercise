@@ -40,19 +40,3 @@ UPDATE donhang SET ma_sach = "S01" WHERE ma = "DH01";
 -- view
 
 SELECT * FROM donhang;
-
--- clear
-
-DELETE FROM donhang;
-
--- remove foreign key
-
-ALTER TABLE donhang DROP FOREIGN KEY fk_ms;
-
--- remove column
-
-ALTER TABLE donhang DROP COLUMN ma_sach;
-
--- delete
-
-DROP TABLE donhang;

@@ -36,19 +36,3 @@ UPDATE cumrap SET so_ghe = 1 WHERE ma = "CR02";
 -- view
 
 SELECT * FROM cumrap;
-
--- clear
-
-DELETE FROM cumrap;
-
--- remove foreign key
-
-ALTER TABLE cumrap DROP FOREIGN KEY fk_mr;
-
--- remove column
-
-ALTER TABLE cumrap DROP COLUMN ma_rap;
-
--- delete
-
-DROP TABLE cumrap;

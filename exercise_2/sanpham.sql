@@ -35,11 +35,3 @@ VALUES
 -- view
 
 SELECT * FROM sanpham;
-
--- clear
-
-DELETE FROM sanpham;
-
--- delete
-
-DROP TABLE sanpham;

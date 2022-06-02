@@ -17,11 +17,3 @@ VALUES
 -- view
 
 SELECT * FROM groupscrm;
-
--- clear
-
-DELETE FROM groupscrm;
-
--- delete
-
-DROP TABLE groupscrm;

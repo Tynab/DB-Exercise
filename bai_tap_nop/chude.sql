@@ -13,11 +13,3 @@ INSERT INTO chude VALUES ("CD01", "Văn Học");
 -- view
 
 SELECT * FROM chude;
-
--- clear
-
-DELETE FROM chude;
-
--- delete
-
-DROP TABLE chude;

@@ -76,7 +76,3 @@ FROM
     JOIN rap r ON r.ma = ctp.ma_rap
 WHERE
     p.ten LIKE "%Ted%";
-
--- delete
-
-DROP DATABASE baitaptonghop;

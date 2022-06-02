@@ -28,11 +28,3 @@ VALUES
 -- view
 
 SELECT * FROM phim;
-
--- clear
-
-DELETE FROM phim;
-
--- delete
-
-DROP TABLE phim;

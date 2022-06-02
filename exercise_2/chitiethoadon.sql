@@ -30,17 +30,3 @@ VALUES
 -- view
 
 SELECT * FROM chitiethoadon;
-
--- clear
-
-DELETE FROM chitiethoadon;
-
--- remove foreign key
-
-ALTER TABLE chitiethoadon DROP FOREIGN KEY fk_masanpham;
-
-ALTER TABLE chitiethoadon DROP FOREIGN KEY fk_mahoadon;
-
--- delete
-
-DROP TABLE chitiethoadon;

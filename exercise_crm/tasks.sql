@@ -53,11 +53,3 @@ WHERE
 -- view
 
 SELECT * FROM taskscrm;
-
--- clear
-
-DELETE FROM taskscrm;
-
--- delete
-
-DROP TABLE taskscrm;

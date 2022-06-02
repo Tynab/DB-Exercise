@@ -68,11 +68,3 @@ VALUES
 -- view
 
 SELECT * FROM students;
-
--- clear
-
-DELETE FROM students;
-
--- delete
-
-DROP TABLE students;

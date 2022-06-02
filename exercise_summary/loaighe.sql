@@ -36,19 +36,3 @@ UPDATE loaighe SET ma_ghe = "G02" WHERE ma = "LG02";
 -- view
 
 SELECT * FROM loaighe;
-
--- clear
-
-DELETE FROM loaighe;
-
--- remove foreign key
-
-ALTER TABLE loaighe DROP FOREIGN KEY fk_maghe;
-
--- remove column
-
-ALTER TABLE loaighe DROP COLUMN ma_ghe;
-
--- delete
-
-DROP TABLE loaighe;

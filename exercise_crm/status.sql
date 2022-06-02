@@ -13,11 +13,3 @@ INSERT INTO statuscrm(name) VALUES ("Status 1");
 -- view
 
 SELECT * FROM statuscrm;
-
--- clear
-
-DELETE FROM statuscrm;
-
--- delete
-
-DROP TABLE statuscrm;

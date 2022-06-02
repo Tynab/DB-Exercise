@@ -18,11 +18,3 @@ VALUES
 -- view
 
 SELECT * FROM hoadon;
-
--- clear
-
-DELETE FROM hoadon;
-
--- delete
-
-DROP TABLE hoadon;

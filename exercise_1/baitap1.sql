@@ -27,7 +27,3 @@ FROM
 WHERE
     city = "Can Tho"
     OR city = "Soc Trang";
-
--- delete
-
-DROP DATABASE baitap1;

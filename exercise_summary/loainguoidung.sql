@@ -44,19 +44,3 @@ WHERE
 -- view
 
 SELECT * FROM loainguoidung;
-
--- clear
-
-DELETE FROM loainguoidung;
-
--- remove foreign key
-
-ALTER TABLE loainguoidung DROP FOREIGN KEY fk_tknd;
-
--- remove column
-
-ALTER TABLE loainguoidung DROP COLUMN taikhoan_nguoidung;
-
--- delete
-
-DROP TABLE loainguoidung;
