@@ -1,44 +1,32 @@
--- create
+-- Summary:
+--   Tao bang khach hang cho database baitap2.
+--   Khach hang duoc hoa don tham chieu qua hoadon.ma_khachhang.
 
-CREATE TABLE IF NOT EXISTS khachhang(
+CREATE DATABASE IF NOT EXISTS baitap2;
+USE baitap2;
+
+-- Schema: luu thong tin lien he co ban cua khach hang.
+CREATE TABLE IF NOT EXISTS khachhang (
     ma CHAR(10) NOT NULL,
     ho NVARCHAR(20),
     ten NVARCHAR(20),
     dia_chi NVARCHAR(255),
     sdt CHAR(20),
     email CHAR(50),
-    PRIMARY KEY(ma)
+    PRIMARY KEY (ma)
 );
 
--- add values
-
+-- Seed data.
 INSERT INTO
-    khachhang
+    khachhang (ma, ho, ten, dia_chi, sdt, email)
 VALUES
-    (
-        "KH01",
-        "Nguyễn",
-        "Văn",
-        "Hà Nội",
-        "0123456789",
-        "nguyenvan@gmail.com"
-    );
+    ('KH01', 'Nguyễn', 'Văn A', 'Hà Nội', '0123456789', 'nguyenvan@gmail.com')
+ON DUPLICATE KEY UPDATE
+    ho = VALUES(ho),
+    ten = VALUES(ten),
+    dia_chi = VALUES(dia_chi),
+    sdt = VALUES(sdt),
+    email = VALUES(email);
 
--- add new column
-
-ALTER TABLE khachhang ADD COLUMN ma_hoadon CHAR(10);
-
--- add foreign key
-
-ALTER TABLE
-    khachhang
-ADD
-    CONSTRAINT fk_mhd FOREIGN KEY(ma_hoadon) REFERENCES hoadon(ma);
-
--- edit value
-
-UPDATE khachhang SET ma_hoadon = "HD01" WHERE ma = "KH01";
-
--- view
-
+-- Quick check.
 SELECT * FROM khachhang;

@@ -1,39 +1,26 @@
--- create
+-- Summary:
+--   Tao danh muc loai san pham cho database baitap2.
+--   Chay file nay truoc sanpham.sql vi san pham se tham chieu den loai san pham.
 
-CREATE TABLE IF NOT EXISTS loaisanpham(
+CREATE DATABASE IF NOT EXISTS baitap2;
+USE baitap2;
+
+-- Schema: moi loai san pham gom ma va ten hien thi.
+CREATE TABLE IF NOT EXISTS loaisanpham (
     ma CHAR(10) NOT NULL,
-    ten NVARCHAR(50),
-    PRIMARY KEY(ma)
+    ten NVARCHAR(50) NOT NULL,
+    PRIMARY KEY (ma)
 );
 
--- add values
-
+-- Seed data: ma loai duoc co dinh de cac bang khac tham chieu on dinh.
 INSERT INTO
-    loaisanpham
+    loaisanpham (ma, ten)
 VALUES
-    ("LSP01", "Sách"),
-    ("LSP02", "Điện thoại"),
-    ("LSP03", "Laptop");
+    ('LSP01', 'Sách'),
+    ('LSP02', 'Điện thoại'),
+    ('LSP03', 'Laptop')
+ON DUPLICATE KEY UPDATE
+    ten = VALUES(ten);
 
--- add new column
-
-ALTER TABLE loaisanpham ADD COLUMN ma_sanpham CHAR(10);
-
--- add foreign key
-
-ALTER TABLE
-    loaisanpham
-ADD
-    CONSTRAINT fk_msp FOREIGN KEY(ma_sanpham) REFERENCES sanpham(ma);
-
--- edit value
-
-UPDATE loaisanpham SET ma_sanpham = "SP01" WHERE ma = "LSP01";
-
-UPDATE loaisanpham SET ma_sanpham = "SP02" WHERE ma = "LSP02";
-
-UPDATE loaisanpham SET ma_sanpham = "SP03" WHERE ma = "LSP03";
-
--- view
-
+-- Quick check.
 SELECT * FROM loaisanpham;

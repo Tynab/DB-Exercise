@@ -1,38 +1,29 @@
--- create
+-- Summary:
+--   Tao danh muc loai ghe cho database baitaptonghop.
+--   Ghe se tham chieu den loai ghe qua ghe.ma_loaighe.
 
-CREATE TABLE IF NOT EXISTS loaighe(
+CREATE DATABASE IF NOT EXISTS baitaptonghop;
+USE baitaptonghop;
+
+-- Schema: loai ghe luu mo ta va ty le chiet khau/phu thu.
+CREATE TABLE IF NOT EXISTS loaighe (
     ma CHAR(10) NOT NULL,
-    ten NVARCHAR(50),
+    ten NVARCHAR(50) NOT NULL,
     mo_ta NVARCHAR(255),
     chiet_khau FLOAT,
-    PRIMARY KEY(ma)
+    PRIMARY KEY (ma)
 );
 
--- add values
-
+-- Seed data.
 INSERT INTO
-    loaighe
+    loaighe (ma, ten, mo_ta, chiet_khau)
 VALUES
-    ("LG01", "Ghế VIP", "Ghế mới", 1.5),
-    ("LG02", "Ghế thường", "Ghế cũ", 0);
+    ('LG01', 'Ghế VIP', 'Ghế mới', 1.5),
+    ('LG02', 'Ghế thường', 'Ghế cũ', 0)
+ON DUPLICATE KEY UPDATE
+    ten = VALUES(ten),
+    mo_ta = VALUES(mo_ta),
+    chiet_khau = VALUES(chiet_khau);
 
--- add new column
-
-ALTER TABLE loaighe ADD COLUMN ma_ghe CHAR(10);
-
--- add foreign key
-
-ALTER TABLE
-    loaighe
-ADD
-    CONSTRAINT fk_maghe FOREIGN KEY(ma_ghe) REFERENCES ghe(ma);
-
--- edit value
-
-UPDATE loaighe SET ma_ghe = "G01" WHERE ma = "LG01";
-
-UPDATE loaighe SET ma_ghe = "G02" WHERE ma = "LG02";
-
--- view
-
+-- Quick check.
 SELECT * FROM loaighe;

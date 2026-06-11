@@ -1,32 +1,31 @@
--- create
+-- Summary:
+--   Tao bang rap va gan tung rap vao mot cum rap.
+--   Can chay cumrap.sql truoc file nay.
 
-CREATE TABLE IF NOT EXISTS rap(
+CREATE DATABASE IF NOT EXISTS baitaptonghop;
+USE baitaptonghop;
+
+-- Schema: moi rap thuoc mot cum rap va luu tong so ghe hien co.
+CREATE TABLE IF NOT EXISTS rap (
     ma CHAR(10) NOT NULL,
-    ten NVARCHAR(50),
-    PRIMARY KEY(ma)
+    ma_cumrap CHAR(10) NOT NULL,
+    ten NVARCHAR(50) NOT NULL,
+    so_ghe INT,
+    PRIMARY KEY (ma),
+    CONSTRAINT fk_rap_cumrap
+        FOREIGN KEY (ma_cumrap) REFERENCES cumrap(ma)
 );
 
--- add values
+-- Seed data.
+INSERT INTO
+    rap (ma, ma_cumrap, ten, so_ghe)
+VALUES
+    ('R01', 'CR01', 'Rạp 1', 1),
+    ('R02', 'CR02', 'Rạp 2', 1)
+ON DUPLICATE KEY UPDATE
+    ma_cumrap = VALUES(ma_cumrap),
+    ten = VALUES(ten),
+    so_ghe = VALUES(so_ghe);
 
-INSERT INTO rap VALUES ("R01", "Rạp 1"), ("R02", "Rạp 2");
-
--- add new column
-
-ALTER TABLE rap ADD COLUMN ma_ghe CHAR(10);
-
--- add foreign key
-
-ALTER TABLE
-    rap
-ADD
-    CONSTRAINT fk_mg FOREIGN KEY(ma_ghe) REFERENCES ghe(ma);
-
--- edit value
-
-UPDATE rap SET ma_ghe = "G01" WHERE ma = "R01";
-
-UPDATE rap SET ma_ghe = "G02" WHERE ma = "R02";
-
--- view
-
+-- Quick check.
 SELECT * FROM rap;
