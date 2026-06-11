@@ -1,15 +1,24 @@
--- create
+-- Summary:
+--   Tao danh muc chu de sach cho database qlbansach.
+--   Bang sach se tham chieu den chu de qua sach.ma_chude.
 
-CREATE TABLE IF NOT EXISTS chude(
+CREATE DATABASE IF NOT EXISTS qlbansach;
+USE qlbansach;
+
+-- Schema: chu de giup phan nhom sach.
+CREATE TABLE IF NOT EXISTS chude (
     ma CHAR(10) NOT NULL,
-    ten NVARCHAR(50),
-    PRIMARY KEY(ma)
+    ten NVARCHAR(50) NOT NULL,
+    PRIMARY KEY (ma)
 );
 
--- add values
+-- Seed data.
+INSERT INTO
+    chude (ma, ten)
+VALUES
+    ('CD01', 'Văn Học')
+ON DUPLICATE KEY UPDATE
+    ten = VALUES(ten);
 
-INSERT INTO chude VALUES ("CD01", "Văn Học");
-
--- view
-
+-- Quick check.
 SELECT * FROM chude;

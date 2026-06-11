@@ -1,83 +1,41 @@
--- create
+-- Summary:
+--   Tao bang sach va gan sach vao nha xuat ban, chu de.
+--   Can chay nhaxuatban.sql va chude.sql truoc file nay.
 
-CREATE TABLE IF NOT EXISTS sach(
+CREATE DATABASE IF NOT EXISTS qlbansach;
+USE qlbansach;
+
+-- Schema: thong tin sach; tac gia duoc quan ly rieng qua bang chitiettacgia.
+CREATE TABLE IF NOT EXISTS sach (
     ma CHAR(10) NOT NULL,
-    ten NVARCHAR(50),
+    ma_nhaxuatban CHAR(10) NOT NULL,
+    ma_chude CHAR(10) NOT NULL,
+    ten NVARCHAR(50) NOT NULL,
     anh LONGBLOB,
     mo_ta NVARCHAR(255),
-    gia INT,
+    gia DECIMAL(12, 2),
     ngay DATE,
     so_luong INT,
-    PRIMARY KEY(ma)
+    PRIMARY KEY (ma),
+    CONSTRAINT fk_sach_nhaxuatban
+        FOREIGN KEY (ma_nhaxuatban) REFERENCES nhaxuatban(ma),
+    CONSTRAINT fk_sach_chude
+        FOREIGN KEY (ma_chude) REFERENCES chude(ma)
 );
 
--- add values
-
+-- Seed data.
 INSERT INTO
-    sach(
-        ma,
-        ten,
-        mo_ta,
-        gia,
-        ngay,
-        so_luong
-    )
+    sach (ma, ma_nhaxuatban, ma_chude, ten, mo_ta, gia, ngay, so_luong)
 VALUES
-    (
-        "S01",
-        "Sách Văn Hóa",
-        "Dạy kỹ năng ứng xử thường nhật",
-        100000,
-        "2022-01-01",
-        3
-    );
+    ('S01', 'NXB01', 'CD01', 'Sách Văn Hóa', 'Dạy kỹ năng ứng xử thường nhật', 100000, '2022-01-01', 3)
+ON DUPLICATE KEY UPDATE
+    ma_nhaxuatban = VALUES(ma_nhaxuatban),
+    ma_chude = VALUES(ma_chude),
+    ten = VALUES(ten),
+    mo_ta = VALUES(mo_ta),
+    gia = VALUES(gia),
+    ngay = VALUES(ngay),
+    so_luong = VALUES(so_luong);
 
--- add new column
-
-ALTER TABLE
-    sach
-ADD
-    COLUMN ma_nhaxuatban CHAR(10)
-AFTER
-    so_luong;
-
-ALTER TABLE
-    sach
-ADD
-    COLUMN ma_tacgia CHAR(10)
-AFTER
-    ma_nhaxuatban;
-
-ALTER TABLE sach ADD COLUMN ma_chude CHAR(10);
-
--- add foreign key
-
-ALTER TABLE
-    sach
-ADD
-    CONSTRAINT fk_mnxb FOREIGN KEY(ma_nhaxuatban) REFERENCES nhaxuatban(ma);
-
-ALTER TABLE
-    sach
-ADD
-    CONSTRAINT fk_mtg FOREIGN KEY(ma_tacgia) REFERENCES tacgia(ma);
-
-ALTER TABLE
-    sach
-ADD
-    CONSTRAINT fk_mcd FOREIGN KEY(ma_chude) REFERENCES chude(ma);
-
--- edit value
-
-UPDATE
-    sach
-SET
-    ma_nhaxuatban = "NXB01",
-    ma_tacgia = "TG01",
-    ma_chude = "CD01"
-WHERE
-    ma = "S01";
-
--- view
-
+-- Quick check.
 SELECT * FROM sach;

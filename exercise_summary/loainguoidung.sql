@@ -1,46 +1,25 @@
--- create
+-- Summary:
+--   Tao danh muc loai nguoi dung cho database baitaptonghop.
+--   Nguoidung se tham chieu den bang nay qua nguoidung.ma_loainguoidung.
 
-CREATE TABLE IF NOT EXISTS loainguoidung(
+CREATE DATABASE IF NOT EXISTS baitaptonghop;
+USE baitaptonghop;
+
+-- Schema: danh muc phan nhom nguoi dung.
+CREATE TABLE IF NOT EXISTS loainguoidung (
     ma CHAR(10) NOT NULL,
-    ten NVARCHAR(50),
-    PRIMARY KEY(ma)
+    ten NVARCHAR(50) NOT NULL,
+    PRIMARY KEY (ma)
 );
 
--- add values
-
+-- Seed data.
 INSERT INTO
-    loainguoidung
+    loainguoidung (ma, ten)
 VALUES
-    ("L01", "Người dùng VIP"),
-    ("L02", "Người dùng thường");
+    ('L01', 'Người dùng VIP'),
+    ('L02', 'Người dùng thường')
+ON DUPLICATE KEY UPDATE
+    ten = VALUES(ten);
 
--- add new column
-
-ALTER TABLE loainguoidung ADD COLUMN taikhoan_nguoidung CHAR(50);
-
--- add foreign key
-
-ALTER TABLE
-    loainguoidung
-ADD
-    CONSTRAINT fk_tknd FOREIGN KEY(taikhoan_nguoidung) REFERENCES nguoidung(tai_khoan);
-
--- edit value
-
-UPDATE
-    loainguoidung
-SET
-    taikhoan_nguoidung = "nguyenvana"
-WHERE
-    ma = "L01";
-
-UPDATE
-    loainguoidung
-SET
-    taikhoan_nguoidung = "nguyenvandung"
-WHERE
-    ma = "L02";
-
--- view
-
+-- Quick check.
 SELECT * FROM loainguoidung;

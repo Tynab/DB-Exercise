@@ -1,55 +1,38 @@
--- create
+-- Summary:
+--   Tao bang cong viec CRM va lien ket task voi nhom, tai khoan phu trach, trang thai.
+--   Can chay groups.sql, accountscrm.sql va status.sql truoc file nay.
 
-CREATE TABLE IF NOT EXISTS taskscrm(
-    id INT(11) AUTO_INCREMENT,
-    name VARCHAR(255),
-    end_date VARCHAR(20),
-    PRIMARY KEY(id)
+CREATE DATABASE IF NOT EXISTS baitapcrm;
+USE baitapcrm;
+
+-- Schema: end_date dung kieu DATE de truy van thoi gian chinh xac hon VARCHAR.
+CREATE TABLE IF NOT EXISTS taskscrm (
+    id INT AUTO_INCREMENT,
+    group_id INT,
+    account_id INT,
+    status_id INT,
+    name VARCHAR(255) NOT NULL,
+    end_date DATE,
+    PRIMARY KEY (id),
+    CONSTRAINT fk_taskscrm_group
+        FOREIGN KEY (group_id) REFERENCES groupscrm(id),
+    CONSTRAINT fk_taskscrm_account
+        FOREIGN KEY (account_id) REFERENCES accountscrm(id),
+    CONSTRAINT fk_taskscrm_status
+        FOREIGN KEY (status_id) REFERENCES statuscrm(id)
 );
 
--- add values
-
+-- Seed data.
 INSERT INTO
-    taskscrm(name, end_date)
+    taskscrm (id, group_id, account_id, status_id, name, end_date)
 VALUES
-    ("Task 1", "2020-01-01");
+    (1, 1, 1, 1, 'Task 1', '2020-01-01')
+ON DUPLICATE KEY UPDATE
+    group_id = VALUES(group_id),
+    account_id = VALUES(account_id),
+    status_id = VALUES(status_id),
+    name = VALUES(name),
+    end_date = VALUES(end_date);
 
--- add new column
-
-ALTER TABLE taskscrm ADD COLUMN group_id INT(11);
-
-ALTER TABLE taskscrm ADD COLUMN account_id INT(11);
-
-ALTER TABLE taskscrm ADD COLUMN status_id INT(11);
-
--- add foreign key
-
-ALTER TABLE
-    taskscrm
-ADD
-    CONSTRAINT fk_groupid FOREIGN KEY(group_id) REFERENCES groupscrm(id);
-
-ALTER TABLE
-    taskscrm
-ADD
-    CONSTRAINT fk_accountid FOREIGN KEY(account_id) REFERENCES accountscrm(id);
-
-ALTER TABLE
-    taskscrm
-ADD
-    CONSTRAINT fk_statusid FOREIGN KEY(status_id) REFERENCES statuscrm(id);
-
--- edit value
-
-UPDATE
-    taskscrm
-SET
-    group_id = 1,
-    account_id = 1,
-    status_id = 1
-WHERE
-    id = 1;
-
--- view
-
+-- Quick check.
 SELECT * FROM taskscrm;
